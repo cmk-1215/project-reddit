@@ -2,8 +2,11 @@
 //Added more intent driven comments. 
 //Added Bootstrap grid layout
 
+
+
 // a function that controls the main post button
-$('#post-btn').on('click', function () {
+
+var addPost = $('#post-btn').on('click', function () {
   var mainPost = $('#post-input').val();//the post input 
   var mainName = $('#name-input').val();//the name associated with post input 
 
@@ -31,18 +34,20 @@ $('#post-btn').on('click', function () {
 
 
   //removes the post from the forum
-  $('.remove-button').on('click', function () {
+  var removePost = $('.remove-button').on('click', function () {
     $(this).parent().remove();
+    return removePost; 
   });
 
   //toggles the comments section when clicked
-  $('.comment-button').unbind().on('click', function () {
+  var comments = $('.comment-button').unbind().on('click', function () {
     $(this).next().toggle();
+    return comments;
   });
 
 
   // posts comment and user associated with comment to the post when "post comment is clicked"
-  $('.comment-post').on('click', function () {
+  var postComment =$('.comment-post').on('click', function () {
     var postedComment = $('.comment-input').val();
     var postedCommentName = $('.comment-name').val();
     var closeButton = '<span class="glyphicon glyphicon-remove" style="color:#337ab7"></span>'
@@ -57,9 +62,14 @@ $('#post-btn').on('click', function () {
 
 
     //removes comments posted to main post
-  $('.glyphicon-remove').on('click', function () {
-    $(this).parent().remove();
+    var removeComment = $('.glyphicon-remove').on('click', function () {
+      $(this).parent().remove();
+      return removeComment;
+      });
 
+      return postComment;
     });
+    
+    return addPost;
   });
-});
+
